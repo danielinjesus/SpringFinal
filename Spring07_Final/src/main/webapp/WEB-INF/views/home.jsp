@@ -9,6 +9,9 @@
 </head>
 <body>
 <h3>인덱스 페이지 입니다.</h3>
+<ul>
+	<li><a href="users/signup_form.do">회원가입</a></li>
+</ul>
 <h4>공지사항</h4>
 <ul>
 	<c:forEach var="tmp" items="${noticeList }">
