@@ -6,6 +6,11 @@
 		(id, pwd, email, regdate)
 		VALUES(#{id}, #{pwd}, #{email}, SYSDATE)
 	</insert>
+	<select id="getId" parameterType="usersDto" resultType="string">
+		SELECT id
+		FROM users
+		WHERE id=#{id} AND pwd=#{pwd}
+	</select>
 </mapper>
 
 

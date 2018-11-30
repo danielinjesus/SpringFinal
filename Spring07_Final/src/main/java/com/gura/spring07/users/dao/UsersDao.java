@@ -6,4 +6,6 @@ import com.gura.spring07.users.dto.UsersDto;
 public interface UsersDao {
 	//회원정보를 DB 에 INSERT 하는 메소드
 	public void insert(UsersDto dto);
+	//유효한 정보인지 리턴해주는 메소드
+	public boolean isValid(UsersDto dto);
 }

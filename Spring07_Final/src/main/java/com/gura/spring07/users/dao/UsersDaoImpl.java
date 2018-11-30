@@ -24,6 +24,20 @@ public class UsersDaoImpl implements UsersDao{
 		 */
 		session.insert("users.insert", dto);
 	}
+
+	@Override
+	public boolean isValid(UsersDto dto) {
+		/*
+		 *  parameterType : UsersDto
+		 *  resultType : String
+		 */
+		String id=session.selectOne("users.getId", dto);
+		if(id == null) { //아이디 혹은 비밀번호가 틀리면 null 이다. 
+			return false;
+		}else { // null 이 아니면 유효한 정보이다. 
+			return true; 
+		}
+	}
 	
 }
 

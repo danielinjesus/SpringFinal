@@ -1,8 +1,9 @@
 package com.gura.spring07.users.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 /*
  *  users 에 관련된 요청 처리할 컨트롤러 
@@ -37,7 +38,23 @@ public class UsersController {
 		
 		return "users/loginform";
 	}
+	//로그인 요청 처리
+	@RequestMapping("/users/login")
+	public ModelAndView login(HttpSession session, ModelAndView mView, @ModelAttribute UsersDto dto) {
+		//UsersService 를 통해서 로그인 관련 처리를 하고
+		service.validUser(session, mView, dto);
+		//view 페이지 정보를 담고 
+		mView.setViewName("users/login");
+		//ModelAndView 객체를 리턴해 준다. 
+		return mView;
+	}
 }
+
+
+
+
+
+
 
 
 
