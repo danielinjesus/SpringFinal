@@ -48,6 +48,12 @@ public class UsersDaoImpl implements UsersDao{
 			return true;
 		}
 	}
+
+	@Override
+	public UsersDto getData(String id) {
+		
+		return session.selectOne("users.getData", id);
+	}
 	
 }
 

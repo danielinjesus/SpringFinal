@@ -15,7 +15,7 @@
 	</c:when>
 	<c:otherwise>
 		<p> 
-			<strong>${id }</strong> 님 로그인중 ...
+			<a href="users/info.do">${id }</a> 님 로그인중 ...
 			<a href="users/logout.do">로그아웃</a>
 		</p>
 	</c:otherwise>

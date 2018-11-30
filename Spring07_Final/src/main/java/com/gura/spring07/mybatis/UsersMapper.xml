@@ -16,6 +16,11 @@
 		FROM users
 		WHERE id=#{id}
 	</select>
+	<select id="getData" parameterType="string" resultType="usersDto">
+		SELECT id, pwd, email, regdate
+		FROM users
+		WHERE id=#{id}
+	</select>
 </mapper>
 
 

@@ -2,6 +2,7 @@ package com.gura.spring07.users.service;
 
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.ModelAndView;
@@ -15,4 +16,15 @@ public interface UsersService {
 	public void validUser(HttpSession session, ModelAndView mView, UsersDto dto);
 	//아이디 사용가능 여부를 Map 에 담아서 리턴하는 로직 처리
 	public Map<String, Object> canUseId(String inputId);
+	//개인정보를 보여주기 위한 비즈니스 로직 처리
+	public void showInfo(HttpSession session, ModelAndView mView);
 }
+
+
+
+
+
+
+
+
+

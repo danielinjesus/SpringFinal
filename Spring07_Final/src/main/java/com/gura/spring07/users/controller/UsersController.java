@@ -3,6 +3,7 @@ package com.gura.spring07.users.controller;
 import java.io.InputStream;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,7 +71,24 @@ public class UsersController {
 		//{"canUse":true} 또는 {"canUse":false} 이다.
 		return map;
 	}
+	//개인 정보 보기 요청 처리
+	@RequestMapping("/users/info")
+	public ModelAndView authInfo(ModelAndView mView, HttpServletRequest request) {
+		
+		service.showInfo(request.getSession(), mView);
+		//view 페이지 정보를 담아서 
+		mView.setViewName("users/info");
+		//ModelAndView 객체를 리턴해준다. 
+		return mView;
+	}
 }
+
+
+
+
+
+
+
 
 
 

@@ -51,6 +51,14 @@ public class UsersServiceImpl implements UsersService{
 		}
 		return map;
 	}
+	@Override
+	public void showInfo(HttpSession session, ModelAndView mView) {
+		String id=(String)session.getAttribute("id");
+		//UsersDao 객체를 이용해서 개인정보 가져와서
+		UsersDto dto=dao.getData(id);
+		//ModelAndView 객체에 담으면 HttpServletRequest 에 담긴다. 
+		mView.addObject("dto", dto);
+	}
 	
 }
 
