@@ -9,7 +9,7 @@
 </head>
 <body>
 <h3>로그인 폼 입니다.</h3>
-<form action="login.do" method="post">
+<form action="login.do?url=${param.url }" method="post">
 	<label for="id">아이디</label>
 	<input type="text" id="id" name="id" />
 	<label for="pwd">비밀번호</label>

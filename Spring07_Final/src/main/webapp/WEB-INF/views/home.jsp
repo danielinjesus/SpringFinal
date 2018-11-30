@@ -24,6 +24,7 @@
 <h3>인덱스 페이지 입니다.</h3>
 <ul>
 	<li><a href="users/signup_form.do">회원가입</a></li>
+	<li><a href="play.do">로그인 되어야 갈수 있는곳</a></li>
 </ul>
 <h4>공지사항</h4>
 <ul>
