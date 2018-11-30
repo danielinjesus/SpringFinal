@@ -11,7 +11,8 @@
 <body>
 <div class="container">
 	<h3>회원 가입 폼 입니다.</h3>
-	<form action="signup.do" method="post">
+	<!-- novalidate 는 웹브라우저의 기본 validate 를 막는다 -->
+	<form action="signup.do" method="post" novalidate>
 		<label for="id">아이디</label>
 		<input type="text" name="id" id="id"/><br/>
 		<label for="pwd">비밀번호</label>
