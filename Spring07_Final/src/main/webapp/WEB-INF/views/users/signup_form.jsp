@@ -27,6 +27,9 @@
 </div>
 <script src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js"></script>
 <script>
+	//폼의 유효성 여부 
+	var formValid=false;
+
 	//아이디 중복 확인 버튼을 눌렀을때 실행할 함수 등록
 	$("#checkBtn").click(function(){
 		//입력한 아이디를 읽어와서 
@@ -39,16 +42,34 @@
 			success:function(responseData){
 				if(responseData.canUse){//사용 가능한 아이디라면
 					$("#checkResult").text("사용가능");
+					formValid=true;
 				}else{
 					$("#checkResult").text("사용불가");
+					formValid=false;
 				}
 			}
 		});
 		return false;// 폼 제출 막기 
 	});
+	//폼에 submit 이벤트가 일어났을때 실행할 함수 등록
+	$("#signupForm").on("submit", function(){
+		if(!formValid){//폼이 유효 하지 않다면
+			return false; //폼 전송 막기
+		}
+	});
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
 
 
 
