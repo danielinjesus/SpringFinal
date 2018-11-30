@@ -1,5 +1,7 @@
 package com.gura.spring07.users.service;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.ModelAndView;
@@ -11,4 +13,6 @@ public interface UsersService {
 	public void addUser(ModelAndView mView, UsersDto dto);
 	//로그인 처리를 하는 메소드
 	public void validUser(HttpSession session, ModelAndView mView, UsersDto dto);
+	//아이디 사용가능 여부를 Map 에 담아서 리턴하는 로직 처리
+	public Map<String, Object> canUseId(String inputId);
 }

@@ -1,5 +1,8 @@
 package com.gura.spring07.users.controller;
 
+import java.io.InputStream;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
  *  users 에 관련된 요청 처리할 컨트롤러 
  */
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.spring07.users.dto.UsersDto;
@@ -56,7 +61,25 @@ public class UsersController {
 		//home.do 로 리다일렉트 이동 시킨다.
 		return "redirect:/home.do";
 	}
+	//아이디 중복 확인 ajax 요청 처리
+	@RequestMapping("/users/checkid")
+	@ResponseBody
+	public Map<String, Object> checkid(@RequestParam String inputId){
+		Map<String, Object> map=service.canUseId(inputId);
+		//출력 되는 JSON 문자열은
+		//{"canUse":true} 또는 {"canUse":false} 이다.
+		return map;
+	}
 }
+
+
+
+
+
+
+
+
+
 
 
 

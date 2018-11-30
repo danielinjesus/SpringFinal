@@ -11,6 +11,11 @@
 		FROM users
 		WHERE id=#{id} AND pwd=#{pwd}
 	</select>
+	<select id="isExist" parameterType="string" resultType="string">
+		SELECT id
+		FROM users
+		WHERE id=#{id}
+	</select>
 </mapper>
 
 

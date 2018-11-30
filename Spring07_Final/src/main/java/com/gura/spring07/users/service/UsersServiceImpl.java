@@ -1,5 +1,8 @@
 package com.gura.spring07.users.service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +37,19 @@ public class UsersServiceImpl implements UsersService{
 		}else {
 			mView.addObject("isSuccess", false);
 		}
+	}
+	@Override
+	public Map<String, Object> canUseId(String inputId) {	
+		//UsersDao 를 이용해서 입력한 아이디가 존재하는지 여부를 받아온다. 
+		boolean isExist=dao.isExist(inputId);
+		// jackson 라이브러리가 JSON 문자열을 출력하도록 하는 Map 객체 
+		Map<String, Object> map=new HashMap<>();
+		if(isExist) {
+			map.put("canUse", false);
+		}else {
+			map.put("canUse", true);
+		}
+		return map;
 	}
 	
 }

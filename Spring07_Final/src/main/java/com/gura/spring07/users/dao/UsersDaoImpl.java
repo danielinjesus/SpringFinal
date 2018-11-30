@@ -38,6 +38,16 @@ public class UsersDaoImpl implements UsersDao{
 			return true; 
 		}
 	}
+	//인자로 전달된 아이디가 존재하는지 여부를 리턴하는 메소드 
+	@Override
+	public boolean isExist(String inputId) {
+		String selectedId=session.selectOne("users.isExist", inputId);
+		if(selectedId==null) {// null 이면 해당아이디는 존재 하지 않는것이다.
+			return false;
+		}else {
+			return true;
+		}
+	}
 	
 }
 
