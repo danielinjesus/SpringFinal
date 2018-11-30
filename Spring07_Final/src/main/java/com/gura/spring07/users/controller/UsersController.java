@@ -48,7 +48,22 @@ public class UsersController {
 		//ModelAndView 객체를 리턴해 준다. 
 		return mView;
 	}
+	//로그아웃 요청 처리
+	@RequestMapping("/users/logout")
+	public String logout(HttpSession session) {
+		//로그 아웃 처리를 하고 
+		session.invalidate();
+		//home.do 로 리다일렉트 이동 시킨다.
+		return "redirect:/home.do";
+	}
 }
+
+
+
+
+
+
+
 
 
 
