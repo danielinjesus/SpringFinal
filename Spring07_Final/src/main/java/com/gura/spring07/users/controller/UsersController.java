@@ -31,7 +31,21 @@ public class UsersController {
 		mView.setViewName("users/greeting");
 		return mView;
 	}
+	//로그인 폼 요청 처리 
+	@RequestMapping("/users/loginform")
+	public String loginform() {
+		
+		return "users/loginform";
+	}
 }
+
+
+
+
+
+
+
+
 
 
 

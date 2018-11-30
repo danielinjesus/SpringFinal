@@ -8,6 +8,19 @@
 <title>/views/home.jsp</title>
 </head>
 <body>
+
+<c:choose>
+	<c:when test="${empty sessionScope.id }">
+		<a href="users/loginform.do">로그인</a>
+	</c:when>
+	<c:otherwise>
+		<p> 
+			<strong>${id }</strong> 님 로그인중 ...
+			<a href="users/logout.do">로그아웃</a>
+		</p>
+	</c:otherwise>
+</c:choose>
+
 <h3>인덱스 페이지 입니다.</h3>
 <ul>
 	<li><a href="users/signup_form.do">회원가입</a></li>
