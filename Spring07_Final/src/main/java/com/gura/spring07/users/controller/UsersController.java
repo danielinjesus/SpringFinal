@@ -81,7 +81,22 @@ public class UsersController {
 		//ModelAndView 객체를 리턴해준다. 
 		return mView;
 	}
+	//개인정보 수정 폼 요청처리
+	@RequestMapping("/users/updateform")
+	public ModelAndView authUpdateForm(HttpServletRequest request, ModelAndView mView) {
+		service.showInfo(request.getSession(), mView);
+		mView.setViewName("users/updateform");
+		return mView;
+	}
 }
+
+
+
+
+
+
+
+
 
 
 

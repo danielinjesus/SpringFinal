@@ -32,5 +32,12 @@
 		</tr>
 	</tbody>
 </table>
+<a href="updateform.do">회원정보 수정</a>
 </body>
 </html>
+
+
+
+
+
+
