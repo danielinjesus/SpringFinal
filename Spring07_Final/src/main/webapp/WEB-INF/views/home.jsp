@@ -25,6 +25,7 @@
 <ul>
 	<li><a href="users/signup_form.do">회원가입</a></li>
 	<li><a href="play.do">로그인 되어야 갈수 있는곳</a></li>
+	<li><a href="file/list.do">자료실 목록보기</a></li>
 </ul>
 <h4>공지사항</h4>
 <ul>
