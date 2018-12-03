@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.spring07.file.service.FileService;
@@ -22,7 +23,19 @@ public class FileController {
 		// view 페이지로 forward 이동해서 파일 목록 출력하기 
 		return "file/list";
 	}
+	@RequestMapping("/file/delete")
+	public ModelAndView authDelete(@RequestParam int num, 
+			HttpServletRequest request) {
+		service.removeFileInfo(num, request);
+		return new ModelAndView("redirect:/file/list.do");
+	}
 }
+
+
+
+
+
+
 
 
 

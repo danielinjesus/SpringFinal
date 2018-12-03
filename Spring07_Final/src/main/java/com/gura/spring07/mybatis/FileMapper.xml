@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="file">
+<mapper namespace="file">	
 	<select id="getCount" resultType="int" parameterType="fileDto">
 		SELECT MAX(ROWNUM) 
 		FROM board_file
@@ -36,6 +36,16 @@
 	   <![CDATA[ 
 	    WHERE rnum >= #{startRowNum} AND rnum <=  #{endRowNum}
 	   ]]>
+	</select>
+	<delete id="delete" parameterType="int">
+		DELETE FROM board_file
+		WHERE num=#{num}
+	</delete>
+	<select id="getData" parameterType="int" resultType="fileDto">
+		SELECT num,writer,title,orgFileName,saveFileName,fileSize,
+		downCount,regdate
+		FROM board_file
+		WHERE num=#{num}
 	</select>
 </mapper>
 

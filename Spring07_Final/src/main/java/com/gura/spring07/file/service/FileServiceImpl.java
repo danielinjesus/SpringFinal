@@ -1,5 +1,6 @@
 package com.gura.spring07.file.service;
 
+import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.List;
@@ -101,6 +102,18 @@ public class FileServiceImpl implements FileService{
 		request.setAttribute("pageNum", pageNum);
 		request.setAttribute("totalPageCount", totalPageCount);	
 		request.setAttribute("totalRow", totalRow);
+	}
+
+	@Override
+	public void removeFileInfo(int num, HttpServletRequest request) {
+		//1. 인자로 전달된 파일 번호를 이용해서 삭제할 파일의 정보를 얻어온다.
+		FileDto dto=dao.getData(num);
+		//2. DB 에서 파일 정보 삭제
+		dao.delete(num);
+		//3. 파일 시스템에서 실제 파일 삭제 
+		String path=request.getServletContext().getRealPath("/upload")+
+				File.separator+dto.getSaveFileName();
+		new File(path).delete();
 	}
 	
 }
