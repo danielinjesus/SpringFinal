@@ -88,7 +88,21 @@ public class UsersController {
 		mView.setViewName("users/updateform");
 		return mView;
 	}
+	//개인정보 수정 요청처리
+	@RequestMapping("/users/update")
+	public ModelAndView authUpdate(@ModelAttribute UsersDto dto, HttpServletRequest request) {
+		//UsersService 객체를 이용해서 수정반영
+		service.updateUser(dto);
+		// new ModelAndView("view 페이지 정보")
+		return new ModelAndView("redirect:/users/info.do");
+	}
 }
+
+
+
+
+
+
 
 
 

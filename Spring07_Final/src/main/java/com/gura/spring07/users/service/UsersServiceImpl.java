@@ -59,6 +59,11 @@ public class UsersServiceImpl implements UsersService{
 		//ModelAndView 객체에 담으면 HttpServletRequest 에 담긴다. 
 		mView.addObject("dto", dto);
 	}
+	@Override
+	public void updateUser(UsersDto dto) {
+		//UsersDao 객체를 이용해서 수정 반영한다. 
+		dao.update(dto);
+	}
 	
 }
 

@@ -18,6 +18,8 @@ public interface UsersService {
 	public Map<String, Object> canUseId(String inputId);
 	//개인정보를 보여주기 위한 비즈니스 로직 처리
 	public void showInfo(HttpSession session, ModelAndView mView);
+	//개인정보 수정반영하는 메소드
+	public void updateUser(UsersDto dto);
 }
 
 

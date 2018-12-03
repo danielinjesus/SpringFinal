@@ -54,6 +54,11 @@ public class UsersDaoImpl implements UsersDao{
 		
 		return session.selectOne("users.getData", id);
 	}
+
+	@Override
+	public void update(UsersDto dto) {
+		session.update("users.update", dto);
+	}
 	
 }
 
