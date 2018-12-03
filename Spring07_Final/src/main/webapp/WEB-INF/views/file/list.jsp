@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="container">
-	<a href="private/upload_form.do">업로드 하러 가기</a>
+	<a href="upload_form.do">업로드 하러 가기</a>
 	<h3>파일 목록 입니다.</h3>
 	<table class="table table-bordered">
 		<thead>

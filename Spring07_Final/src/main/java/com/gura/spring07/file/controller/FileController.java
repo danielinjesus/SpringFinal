@@ -29,6 +29,11 @@ public class FileController {
 		service.removeFileInfo(num, request);
 		return new ModelAndView("redirect:/file/list.do");
 	}
+	@RequestMapping("/file/upload_form")
+	public ModelAndView authUploadForm(HttpServletRequest request) {
+		
+		return new ModelAndView("file/upload_form");
+	}
 }
 
 
