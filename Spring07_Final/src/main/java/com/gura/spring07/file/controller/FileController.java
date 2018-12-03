@@ -1,6 +1,7 @@
 package com.gura.spring07.file.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,8 +26,8 @@ public class FileController {
 	}
 	@RequestMapping("/file/delete")
 	public ModelAndView authDelete(@RequestParam int num, 
-			HttpServletRequest request) {
-		service.removeFileInfo(num, request);
+			HttpServletRequest request, HttpServletResponse response) {
+		service.removeFileInfo(num, request, response);
 		return new ModelAndView("redirect:/file/list.do");
 	}
 	@RequestMapping("/file/upload_form")

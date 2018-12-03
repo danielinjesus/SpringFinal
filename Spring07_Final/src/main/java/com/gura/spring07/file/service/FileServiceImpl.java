@@ -1,12 +1,17 @@
 package com.gura.spring07.file.service;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.gura.spring07.file.dao.FileDao;
 import com.gura.spring07.file.dto.FileDto;
 
@@ -105,9 +110,23 @@ public class FileServiceImpl implements FileService{
 	}
 
 	@Override
-	public void removeFileInfo(int num, HttpServletRequest request) {
+	public void removeFileInfo(int num, HttpServletRequest request, 
+			HttpServletResponse response) {
 		//1. 인자로 전달된 파일 번호를 이용해서 삭제할 파일의 정보를 얻어온다.
 		FileDto dto=dao.getData(num);
+		//남의 파일을 삭제 할수 없도록 세션의 아이디와 파일의 작성자 비교
+		String id=(String)request.getSession().getAttribute("id");
+		if(!id.equals(dto.getWriter())) {
+			//로그인된 아이디와 파일의 작성자가 다르면
+			try {
+				// 403 forbidden 에러 발생 시키기  
+				response.sendError(HttpServletResponse.SC_FORBIDDEN);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return; //메소드 종료 
+		}
+		
 		//2. DB 에서 파일 정보 삭제
 		dao.delete(num);
 		//3. 파일 시스템에서 실제 파일 삭제 
