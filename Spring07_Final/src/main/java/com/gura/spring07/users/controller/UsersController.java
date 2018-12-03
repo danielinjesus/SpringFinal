@@ -96,6 +96,11 @@ public class UsersController {
 		// new ModelAndView("view 페이지 정보")
 		return new ModelAndView("redirect:/users/info.do");
 	}
+	@RequestMapping("/users/delete")
+	public ModelAndView authDelete(HttpServletRequest request) {
+		service.deleteUser(request.getSession());
+		return new ModelAndView("users/delete");
+	}
 }
 
 

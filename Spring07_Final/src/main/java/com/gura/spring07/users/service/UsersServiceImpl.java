@@ -64,6 +64,15 @@ public class UsersServiceImpl implements UsersService{
 		//UsersDao 객체를 이용해서 수정 반영한다. 
 		dao.update(dto);
 	}
+	@Override
+	public void deleteUser(HttpSession session) {
+		// 세션에 저장된 아이디를 읽어와서 
+		String id=(String)session.getAttribute("id");
+		// 삭제한다.
+		dao.delete(id);
+		// 로그 아웃처리
+		session.invalidate();
+	}
 	
 }
 

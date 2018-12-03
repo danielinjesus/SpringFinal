@@ -20,6 +20,8 @@ public interface UsersService {
 	public void showInfo(HttpSession session, ModelAndView mView);
 	//개인정보 수정반영하는 메소드
 	public void updateUser(UsersDto dto);
+	//개인정보 삭제하는 메소드
+	public void deleteUser(HttpSession session);
 }
 
 

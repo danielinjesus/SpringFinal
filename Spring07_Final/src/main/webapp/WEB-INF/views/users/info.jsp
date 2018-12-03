@@ -33,8 +33,27 @@
 	</tbody>
 </table>
 <a href="updateform.do">회원정보 수정</a>
+<a href="javascript:deleteConfirm()">회원 탈퇴</a>
+<script>
+	function deleteConfirm(){
+		var isDelete=confirm("${id} 회원님 탈퇴 하시겠습니까?");
+		if(isDelete){
+			location.href="${pageContext.request.contextPath}/users/delete.do";
+		}
+	}
+</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
 
 
 

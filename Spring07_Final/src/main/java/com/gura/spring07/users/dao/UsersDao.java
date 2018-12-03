@@ -14,7 +14,16 @@ public interface UsersDao {
 	public UsersDto getData(String id);
 	//회원정보를 수정반영하는 메소드
 	public void update(UsersDto dto);
+	//회원정보를 삭제하는 메소드 
+	public void delete(String id);
 }
+
+
+
+
+
+
+
 
 
 
