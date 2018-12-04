@@ -180,6 +180,11 @@ public class CafeServiceImpl implements CafeService{
 		//ModelAndView 객체에 dto를 담아준다. 
 		mView.addObject("dto", dto);
 	}
+
+	@Override
+	public void updateContent(CafeDto dto) {
+		cafeDao.update(dto);
+	}
 	
 }
 

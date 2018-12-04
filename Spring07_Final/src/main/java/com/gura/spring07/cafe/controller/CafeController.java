@@ -57,7 +57,29 @@ public class CafeController {
 		mView.setViewName("cafe/updateform");
 		return mView;
 	}
+	@RequestMapping("/cafe/update")
+	public ModelAndView authUpdate(@ModelAttribute CafeDto dto,HttpServletRequest request) {
+		//서비스를 이용해서 글을 수정반영하고
+		service.updateContent(dto);
+		//dto 에 담긴 글 번호를 이용해서 글자세히 보기로 리다일렉트 이동시킨다.
+		return new ModelAndView("redirect:/cafe/detail.do?num="+dto.getNum());
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

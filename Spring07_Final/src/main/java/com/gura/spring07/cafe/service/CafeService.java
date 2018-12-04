@@ -12,6 +12,7 @@ public interface CafeService {
 	public void getDetail(HttpServletRequest request);
 	public void deleteContent(int num);
 	public void getUpdateData(ModelAndView mView, int num);
+	public void updateContent(CafeDto dto);
 }
 
 
