@@ -5,10 +5,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.gura.spring07.file.dto.FileDto;
 import com.gura.spring07.file.service.FileService;
 
 @Controller
@@ -34,6 +36,15 @@ public class FileController {
 	public ModelAndView authUploadForm(HttpServletRequest request) {
 		
 		return new ModelAndView("file/upload_form");
+	}
+	//파일 업로드 요청 처리 
+	@RequestMapping("/file/upload")
+	public ModelAndView authUpload(@ModelAttribute FileDto dto, 
+			HttpServletRequest request) {
+		//FileDto 에는 업로드된 파일의 제목(title)과 파일정보(file)이 들어있다.
+		service.saveFile(dto, request);
+		//파일 목록보기로 리다일렉트 시킨다. 
+		return new ModelAndView("redirect:/file/list.do");
 	}
 }
 

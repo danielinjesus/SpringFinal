@@ -14,6 +14,8 @@ public interface FileDao {
 	public void delete(int num);
 	//파일 정보를 리턴하는 메소드
 	public FileDto getData(int num);
+	//업로드된 파일 정보를 저장하는 메소드
+	public void insert(FileDto dto);
 }
 
 

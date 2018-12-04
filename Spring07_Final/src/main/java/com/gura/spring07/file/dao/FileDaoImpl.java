@@ -35,6 +35,11 @@ public class FileDaoImpl implements FileDao{
 		
 		return session.selectOne("file.getData", num);
 	}
+
+	@Override
+	public void insert(FileDto dto) {
+		session.insert("file.insert", dto);
+	}
 	
 }
 

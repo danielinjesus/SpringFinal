@@ -13,11 +13,19 @@
 	<label for="title">제목</label>
 	<input type="text" name="title" id="title"/><br/>
 	<label for="myFile">첨부파일</label>
-	<input type="file" name="myFile" id="myFile" /><br/>
+	<input type="file" name="file" id="myFile" /><br/>
 	<button type="submit">업로드</button>
 </form>
 </body>
 </html>
+
+
+
+
+
+
+
+
 
 
 
