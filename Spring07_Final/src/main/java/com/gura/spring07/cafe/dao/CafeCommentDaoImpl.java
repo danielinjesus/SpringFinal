@@ -18,8 +18,18 @@ public class CafeCommentDaoImpl implements CafeCommentDao{
 		//ref_group 번호를 이용해서 댓글 목록을 select 해서 리턴해준다. 
 		return session.selectList("cafeComment.getList", ref_group);
 	}
+
+	@Override
+	public void delete(int num) {
+		session.delete("cafeComment.delete", num);
+	}
 	
 }
+
+
+
+
+
 
 
 

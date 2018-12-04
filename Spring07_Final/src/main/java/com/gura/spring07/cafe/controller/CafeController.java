@@ -1,5 +1,8 @@
 package com.gura.spring07.cafe.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.spring07.cafe.dto.CafeDto;
@@ -64,6 +68,16 @@ public class CafeController {
 		//dto 에 담긴 글 번호를 이용해서 글자세히 보기로 리다일렉트 이동시킨다.
 		return new ModelAndView("redirect:/cafe/detail.do?num="+dto.getNum());
 	}
+	@RequestMapping("/cafe/comment_delete")
+	@ResponseBody
+	public Map<String, Object> authCommentDelete(@RequestParam int num, HttpServletRequest request) {
+		// num 은 삭제할 댓글의 글번호 이다.
+		service.deleteComment(num);
+		Map<String, Object> map=new HashMap<>();
+		map.put("isSuccess", true);
+		return map;
+	}
+	
 }
 
 

@@ -13,6 +13,7 @@ public interface CafeService {
 	public void deleteContent(int num);
 	public void getUpdateData(ModelAndView mView, int num);
 	public void updateContent(CafeDto dto);
+	public void deleteComment(int num);
 }
 
 

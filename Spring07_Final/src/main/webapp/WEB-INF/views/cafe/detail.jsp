@@ -214,7 +214,7 @@
 		var isDelete=confirm("확인을 누르면 댓글이 삭제 됩니다.");
 		if(isDelete){
 			$.ajax({
-				url:"private/comment_delete.do",
+				url:"comment_delete.do",
 				method:"post",
 				data:{"num":num},
 				success:function(responseData){
