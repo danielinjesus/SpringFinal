@@ -184,6 +184,11 @@ public class FileServiceImpl implements FileService{
 		//ModelAndView 객체에 담는다.
 		mView.addObject("dto", dto);
 	}
+
+	@Override
+	public void addDownCount(int num) {
+		dao.addDownCount(num);
+	}
 	
 }
 

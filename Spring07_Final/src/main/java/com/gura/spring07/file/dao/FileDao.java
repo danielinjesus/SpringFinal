@@ -16,6 +16,8 @@ public interface FileDao {
 	public FileDto getData(int num);
 	//업로드된 파일 정보를 저장하는 메소드
 	public void insert(FileDto dto);
+	//파일 다운로드 횟수 증가 시키는 메소드
+	public void addDownCount(int num);
 }
 
 

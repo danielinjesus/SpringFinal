@@ -13,6 +13,7 @@ public interface FileService {
 			HttpServletResponse response);
 	public void saveFile(FileDto dto, HttpServletRequest request);
 	public void getFileData(ModelAndView mView, int num);
+	public void addDownCount(int num);
 }
 
 

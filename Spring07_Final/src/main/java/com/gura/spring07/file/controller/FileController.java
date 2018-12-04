@@ -55,6 +55,7 @@ public class FileController {
 		 * 파일을 다운로드 시켜줄 view 로 이동해서 다운로드 시켜주기 
 		 */
 		service.getFileData(mView, num);
+		service.addDownCount(num); //다운로드 횟수 증가 시키기 
 		// 추상 view 의 이름 : "fileDownView" 
 		mView.setViewName("fileDownView");
 		return mView;
