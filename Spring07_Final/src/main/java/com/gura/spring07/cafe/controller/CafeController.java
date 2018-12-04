@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.spring07.cafe.dto.CafeDto;
@@ -38,7 +39,20 @@ public class CafeController {
 		//글 목록 보기로 리다일렉트 이동
 		return new ModelAndView("redirect:/cafe/list.do");
 	}
+	@RequestMapping("/cafe/detail")
+	public ModelAndView detail(HttpServletRequest request) {
+		service.getDetail(request);
+		return new ModelAndView("cafe/detail");
+	}
 }
+
+
+
+
+
+
+
+
 
 
 
