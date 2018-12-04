@@ -36,7 +36,11 @@
 				<td><fmt:formatNumber value="${tmp.fileSize }"/>byte</td>
 				<td><fmt:formatNumber value="${tmp.downCount }"/></td>
 				<td>${tmp.regdate }</td>
-				<td><a href="delete.do?num=${tmp.num }">삭제</a></td>
+				<td>
+					<c:if test="${not empty id and tmp.writer eq id }">
+						<a href="delete.do?num=${tmp.num }">삭제</a>
+					</c:if>
+				</td>
 			</tr>
 		</c:forEach>
 		</tbody>
