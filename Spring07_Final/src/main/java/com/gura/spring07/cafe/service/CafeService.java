@@ -14,6 +14,7 @@ public interface CafeService {
 	public void getUpdateData(ModelAndView mView, int num);
 	public void updateContent(CafeDto dto);
 	public void deleteComment(int num);
+	public void saveComment(HttpServletRequest request);
 }
 
 

@@ -77,6 +77,14 @@ public class CafeController {
 		map.put("isSuccess", true);
 		return map;
 	}
+	//댓글 추가 요청처리
+	@RequestMapping("/cafe/comment_insert")
+	public ModelAndView authCommentInsert(@RequestParam int ref_group, HttpServletRequest request) {
+		//서비스를 이용해서 새 댓글을 저장하고 
+		service.saveComment(request);
+		//ref_group 은 원글의 글번호 이다. (댓글의 그룹번호)
+		return new ModelAndView("redirect:/cafe/detail.do?num="+ref_group);
+	}
 	
 }
 

@@ -131,7 +131,7 @@
 								<pre>${tmp.content }</pre>
 							</dd>
 						</dl>
-						<form class="comment-insert-form" action="private/comment_insert.do" method="post">
+						<form class="comment-insert-form" action="comment_insert.do" method="post">
 							<!-- 덧글 그룹 -->
 							<input type="hidden" name="ref_group" value="${dto.num }" />
 							<!-- 덧글 대상 -->
@@ -159,7 +159,7 @@
 		<div class="clearfix"></div>
 		<!-- 원글에 댓글을 작성할수 있는 폼 -->
 		<div class="comment_form">
-			<form action="private/comment_insert.do" method="post">
+			<form action="comment_insert.do" method="post">
 				<!-- 댓글의 그룹번호는 원글의 글번호 -->
 				<input type="hidden" name="ref_group" value="${dto.num }"/>
 				<!-- 댓글의 대상자는 원글의 작성자 -->

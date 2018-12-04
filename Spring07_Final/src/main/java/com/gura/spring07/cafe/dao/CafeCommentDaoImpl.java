@@ -23,6 +23,18 @@ public class CafeCommentDaoImpl implements CafeCommentDao{
 	public void delete(int num) {
 		session.delete("cafeComment.delete", num);
 	}
+
+	@Override
+	public void insert(CafeCommentDto dto) {
+		//새 댓글 저장하기
+		session.insert("cafeComment.insert", dto);
+	}
+
+	@Override
+	public int getSequence() {
+		//새로 등록될 댓글의 글번호를 리턴해주기 
+		return session.selectOne("cafeComment.getSequence");
+	}
 	
 }
 
