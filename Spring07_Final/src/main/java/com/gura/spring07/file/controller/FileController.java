@@ -46,7 +46,40 @@ public class FileController {
 		//파일 목록보기로 리다일렉트 시킨다. 
 		return new ModelAndView("redirect:/file/list.do");
 	}
+	//파일 다운로드 요청 처리
+	@RequestMapping("/file/download")
+	public ModelAndView download(ModelAndView mView, @RequestParam int num) {
+		/* 파라미터로 전달되는 다운로드할 파일의 번호를 이용해서
+		 * 파일정보를 DB 에서 읽어와서 
+		 * ModelAndView 객체에 담고
+		 * 파일을 다운로드 시켜줄 view 로 이동해서 다운로드 시켜주기 
+		 */
+		service.getFileData(mView, num);
+		// 추상 view 의 이름 : "fileDownView" 
+		mView.setViewName("fileDownView");
+		return mView;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
