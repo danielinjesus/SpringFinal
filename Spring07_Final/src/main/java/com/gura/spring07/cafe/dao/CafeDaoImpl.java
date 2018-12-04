@@ -24,6 +24,12 @@ public class CafeDaoImpl implements CafeDao{
 		
 		return session.selectList("cafe.getList", dto);
 	}
+
+	@Override
+	public void insert(CafeDto dto) {
+		
+		session.insert("cafe.insert", dto);
+	}
 	
 }
 
