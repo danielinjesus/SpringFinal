@@ -10,7 +10,16 @@ public interface CafeDao {
 	public void insert(CafeDto dto);
 	public CafeDto getData(CafeDto dto);
 	public void addViewCount(int num);
+	public void delete(int num);
 }
+
+
+
+
+
+
+
+
 
 
 

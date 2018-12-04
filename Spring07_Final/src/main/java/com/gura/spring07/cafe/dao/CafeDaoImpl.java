@@ -41,6 +41,11 @@ public class CafeDaoImpl implements CafeDao{
 	public void addViewCount(int num) {
 		session.update("cafe.addViewCount", num);
 	}
+
+	@Override
+	public void delete(int num) {
+		session.delete("cafe.delete", num);
+	}
 	
 }
 

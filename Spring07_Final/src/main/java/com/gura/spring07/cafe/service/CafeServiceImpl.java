@@ -166,6 +166,11 @@ public class CafeServiceImpl implements CafeService{
 		//request 에 댓글 목록을 담는다.
 		request.setAttribute("commentList", commentList);		
 	}
+
+	@Override
+	public void deleteContent(int num) {
+		cafeDao.delete(num);
+	}
 	
 }
 

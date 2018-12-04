@@ -44,7 +44,21 @@ public class CafeController {
 		service.getDetail(request);
 		return new ModelAndView("cafe/detail");
 	}
+	
+	@RequestMapping("/cafe/delete")
+	public ModelAndView authDelete(@RequestParam int num, HttpServletRequest request) {
+		service.deleteContent(num);
+		return new ModelAndView("redirect:/cafe/list.do");
+	}
 }
+
+
+
+
+
+
+
+
 
 
 

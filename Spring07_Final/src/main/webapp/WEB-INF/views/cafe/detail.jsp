@@ -255,7 +255,7 @@
 	function deleteConfirm(num){
 		var isDelete=confirm(num+" 번 글을 삭제 하시겠습니까?");
 		if(isDelete){
-			location.href="private/delete.do?num="+num;
+			location.href="delete.do?num="+num;
 		}
 	}
 </script>
