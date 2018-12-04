@@ -34,7 +34,7 @@ public class CafeDaoImpl implements CafeDao{
 	@Override
 	public CafeDto getData(CafeDto dto) {
 		
-		return session.selectOne("cafe.getData", dto);
+		return session.selectOne("cafe.getData2", dto);
 	}
 
 	@Override
@@ -45,6 +45,12 @@ public class CafeDaoImpl implements CafeDao{
 	@Override
 	public void delete(int num) {
 		session.delete("cafe.delete", num);
+	}
+
+	@Override
+	public CafeDto getData(int num) {
+		
+		return session.selectOne("cafe.getData", num);
 	}
 	
 }

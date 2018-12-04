@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.spring07.cafe.dao.CafeCommentDao;
 import com.gura.spring07.cafe.dao.CafeDao;
@@ -170,6 +171,14 @@ public class CafeServiceImpl implements CafeService{
 	@Override
 	public void deleteContent(int num) {
 		cafeDao.delete(num);
+	}
+
+	@Override
+	public void getUpdateData(ModelAndView mView, int num) {
+		//글 수정 폼에 필요한 데이터를 얻어온다.
+		CafeDto dto=cafeDao.getData(num);
+		//ModelAndView 객체에 dto를 담아준다. 
+		mView.addObject("dto", dto);
 	}
 	
 }
