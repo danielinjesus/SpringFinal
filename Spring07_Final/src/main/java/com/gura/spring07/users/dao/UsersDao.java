@@ -16,6 +16,8 @@ public interface UsersDao {
 	public void update(UsersDto dto);
 	//회원정보를 삭제하는 메소드 
 	public void delete(String id);
+	//아이디에 해당하는 비밀번호 hash 값을 리턴해주는 메소드
+	public String getPwdHash(String id);
 }
 
 

@@ -64,6 +64,12 @@ public class UsersDaoImpl implements UsersDao{
 	public void delete(String id) {
 		session.delete("users.delete", id);
 	}
+
+	@Override
+	public String getPwdHash(String id) {
+		//비밀번호 hash 값을 select 해서 리턴해준다.
+		return session.selectOne("users.getPwd", id);
+	}
 	
 }
 

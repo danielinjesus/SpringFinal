@@ -6,6 +6,8 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -21,6 +23,13 @@ public class UsersServiceImpl implements UsersService{
 
 	@Override
 	public void addUser(ModelAndView mView, UsersDto dto) {
+		//dto 에 저장된 비밀번호를 암호화 해서 다시 넣어준다.
+		String planText=dto.getPwd();
+		BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
+		String hash=encoder.encode(planText);
+		//hash 문자열을 setter 메소드를 이용해서 다시 dto 에 넣어준다. 
+		dto.setPwd(hash);
+		//UsersDao 를 이용해서 DB 에 저장하기 
 		dao.insert(dto);
 		mView.addObject("id", dto.getId());
 	}
@@ -28,7 +37,13 @@ public class UsersServiceImpl implements UsersService{
 	@Override
 	public void validUser(HttpSession session, ModelAndView mView, UsersDto dto) {
 		//UsersDao 를 이용해서 아이디 비밀번호가 유효한지 여부를 알아낸다. 
-		boolean isValid=dao.isValid(dto);
+		boolean isValid=false;
+		//DB 에 저장된 암호화된 비밀번호를 읽어온다. 
+		String pwdHash=dao.getPwdHash(dto.getId());
+		if(pwdHash != null) {
+			//입력한 비밀번호와 암호화된 비밀번호의 일치여부를 isValid 에 넣어준다.
+			isValid=BCrypt.checkpw(dto.getPwd(), pwdHash);
+		}
 		if(isValid) {
 			//로그인 처리를 해준다.
 			session.setAttribute("id", dto.getId());

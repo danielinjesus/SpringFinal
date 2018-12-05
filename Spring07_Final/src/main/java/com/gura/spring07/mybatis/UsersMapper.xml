@@ -30,6 +30,11 @@
 		DELETE FROM users
 		WHERE id=#{id}
 	</delete>
+	<select id="getPwd" parameterType="string" resultType="string">
+		SELECT pwd
+		FROM users
+		WHERE id=#{id}
+	</select>
 </mapper>
 
 
