@@ -9,4 +9,5 @@ public interface CafeCommentDao {
 	public void delete(int num);
 	public void insert(CafeCommentDto dto);
 	public int getSequence();
+	public void update(CafeCommentDto dto);
 }

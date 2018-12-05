@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.servlet.ModelAndView;
 
+import com.gura.spring07.cafe.dto.CafeCommentDto;
 import com.gura.spring07.cafe.dto.CafeDto;
 
 public interface CafeService {
@@ -15,6 +16,7 @@ public interface CafeService {
 	public void updateContent(CafeDto dto);
 	public void deleteComment(int num);
 	public void saveComment(HttpServletRequest request);
+	public void updateComment(CafeCommentDto dto);
 }
 
 

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.gura.spring07.cafe.dto.CafeCommentDto;
 import com.gura.spring07.cafe.dto.CafeDto;
 import com.gura.spring07.cafe.service.CafeService;
 
@@ -85,8 +86,25 @@ public class CafeController {
 		//ref_group 은 원글의 글번호 이다. (댓글의 그룹번호)
 		return new ModelAndView("redirect:/cafe/detail.do?num="+ref_group);
 	}
-	
+	//댓글 수정 요청 처리
+	@RequestMapping("/cafe/comment_update")
+	@ResponseBody
+	public Map<String, Object> authCommentUpdate(@ModelAttribute CafeCommentDto dto,
+			HttpServletRequest request){
+		//서비스를 통해서 댓글을 업데이트 하는 작업을 하고
+		service.updateComment(dto);
+		Map<String, Object> map=new HashMap<>();
+		map.put("isSuccess", true);
+		return map;
+	}
 }
+
+
+
+
+
+
+
 
 
 

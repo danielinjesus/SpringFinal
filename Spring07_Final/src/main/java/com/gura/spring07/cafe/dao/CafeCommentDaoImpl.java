@@ -35,6 +35,12 @@ public class CafeCommentDaoImpl implements CafeCommentDao{
 		//새로 등록될 댓글의 글번호를 리턴해주기 
 		return session.selectOne("cafeComment.getSequence");
 	}
+
+	@Override
+	public void update(CafeCommentDto dto) {
+		//댓글 수정하기
+		session.update("cafeComment.update", dto);
+	}
 	
 }
 

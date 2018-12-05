@@ -223,6 +223,12 @@ public class CafeServiceImpl implements CafeService{
 		//댓글 정보를 DB 에 저장한다.
 		cafeCommentDao.insert(dto);
 	}
+
+	@Override
+	public void updateComment(CafeCommentDto dto) {
+		//CafeCommentDao 객체를 이용해서 댓글 내용을 update 한다. 
+		cafeCommentDao.update(dto);
+	}
 	
 }
 
