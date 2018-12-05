@@ -70,6 +70,12 @@ public class UsersDaoImpl implements UsersDao{
 		//비밀번호 hash 값을 select 해서 리턴해준다.
 		return session.selectOne("users.getPwd", id);
 	}
+
+	@Override
+	public void updatePwd(UsersDto dto) {
+		//비밀번호만 수정하기 
+		session.update("users.updatePwd", dto);
+	}
 	
 }
 

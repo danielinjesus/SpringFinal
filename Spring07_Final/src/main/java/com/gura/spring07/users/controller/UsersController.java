@@ -101,6 +101,19 @@ public class UsersController {
 		service.deleteUser(request.getSession());
 		return new ModelAndView("users/delete");
 	}
+	//비밀번호 수정폼 요청처리
+	@RequestMapping("/users/pwd_updateform.do")
+	public ModelAndView authPwdForm(HttpServletRequest request) {
+		return new ModelAndView("users/pwd_updateform");
+	}
+	//비밀번호 수정반영 요청처리
+	@RequestMapping("/users/update_pwd")
+	public ModelAndView authUpdatePwd(HttpServletRequest request) {
+		//비밀번호를 수정하는 비즈니스로직을 서비스로 수행하고
+		service.updatePwd(request);
+		//view 페이지로 forward 이동해서 응답
+		return new ModelAndView("users/update_pwd");
+	}
 }
 
 

@@ -14,28 +14,19 @@
 	<label for="id">아이디</label>
 	<input type="text" id="id" value="${dto.id }" 
 		disabled="disabled"/><br/>
-	<label for="pwd">비밀번호</label>
-	<input type="password" name="pwd" id="pwd"
-		value="${dto.pwd }"/><br/>
-	<label for="pwd2">비밀번호 확인</label>
-	<input type="password" id="pwd2" value="${dto.pwd }"/><br/>
 	<label for="email">이메일 주소</label>
 	<input type="text" name="email" id="email" 
 		value="${dto.email }"/><br/>
 	<button type="submit">수정 확인</button>
 </form>
-<script src="${pageContext.request.contextPath}/resources/js/jquery-3.3.1.min.js"></script>
-<script>
-	// 폼에 submit 이벤트가 일어났을때 호출되는 함수 등록 
-	$("#updateForm").on("submit", function(){
-		//입력한 비밀번호를 읽어와서 
-		var pwd1=$("#pwd").val();
-		var pwd2=$("#pwd2").val();
-		if( pwd1 != pwd2 ){//두개를 다르게 입력하면 
-			alert("비밀번호를 확인 하세요");
-			return false; //폼 전송 막기 
-		}			
-	});
-</script>
+<a href="pwd_updateform.do">비밀번호 수정</a>
 </body>
 </html>
+
+
+
+
+
+
+
+

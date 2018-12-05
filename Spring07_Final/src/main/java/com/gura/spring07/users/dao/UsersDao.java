@@ -18,6 +18,8 @@ public interface UsersDao {
 	public void delete(String id);
 	//아이디에 해당하는 비밀번호 hash 값을 리턴해주는 메소드
 	public String getPwdHash(String id);
+	//비밀번호 수정하는 메소드
+	public void updatePwd(UsersDto dto);
 }
 
 

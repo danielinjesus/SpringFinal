@@ -17,13 +17,13 @@
 		WHERE id=#{id}
 	</select>
 	<select id="getData" parameterType="string" resultType="usersDto">
-		SELECT id, pwd, email, regdate
+		SELECT id, email, regdate
 		FROM users
 		WHERE id=#{id}
 	</select>
 	<update id="update" parameterType="usersDto">
 		UPDATE users
-		SET pwd=#{pwd}, email=#{email}
+		SET email=#{email}
 		WHERE id=#{id}
 	</update>
 	<delete id="delete" parameterType="string">
@@ -35,6 +35,11 @@
 		FROM users
 		WHERE id=#{id}
 	</select>
+	<update id="updatePwd" parameterType="usersDto">
+		UPDATE users
+		SET pwd=#{pwd}
+		WHERE id=#{id}
+	</update>
 </mapper>
 
 
