@@ -5,20 +5,21 @@
 <html ng-app="myApp">
 <head>
 <meta charset="UTF-8">
-<title>/webapp/angular1/http.jsp</title>
+<title>/webapp/angular1/http2.jsp</title>
 <script src="${pageContext.request.contextPath}/resources/js/angular.min.js"></script>
 <script>
 	angular.module("myApp", [])
 	.controller("myCtrl", function($scope, $http){
+		//친구 이름 정보를 담을 배열 
+		$scope.friends=[];
 		//정보 가져오기 버튼을 눌렀을때 실행되는 함수
 		$scope.getData=function(){
 			$http({
-				url:"info.jsp",
-				method:"get",
-				params:{num:1}
+				url:"friends.jsp",
+				method:"get"
 			}).success(function(data){
-				console.log(data);
-				$scope.result=data;
+				//서버에서 응답된 데이터를 모델에 연결
+				$scope.friends=data;
 			});
 		};
 	});
@@ -27,8 +28,9 @@
 <body ng-controller="myCtrl">
 	<h3>angular $http서비스(Ajax) 테스트</h3>
 	<button ng-click="getData()">정보 가져오기</button>
-	<p>{{result}}</p>
-	<a href="http2.jsp">다음예제</a>
+	<ul>
+		<li ng-repeat="tmp in friends">{{tmp.name}}</li>
+	</ul>
 </body>
 </html>
 
