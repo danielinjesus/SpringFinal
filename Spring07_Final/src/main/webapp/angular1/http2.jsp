@@ -31,6 +31,7 @@
 	<ul>
 		<li ng-repeat="tmp in friends">{{tmp.name}}</li>
 	</ul>
+	<a href="http3.jsp">다음예제</a>
 </body>
 </html>
 
