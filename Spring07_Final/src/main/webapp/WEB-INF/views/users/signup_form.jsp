@@ -14,7 +14,14 @@
 	.controller("myCtrl", function($scope, $http){//"myCtrl" 이라는 이름의 컨트롤러 만들기
 		//id 사용 가능여부를 관리할 모델
 		$scope.canUseId=false;
-		
+		//두개의 비밀번호 일치여부를 관리할 모델
+		$scope.pwdEqual=false;
+		//비밀번호 입력란에 입력할때 마다 호출되는 함수 
+		$scope.isPwdEqual=function(){
+			//비밀번호가 일치하는지여부를 pwdEqual 에 대입한다. 
+			$scope.pwdEqual = $scope.pwd == $scope.pwd2;
+		};
+	
 		//id 입력란이 포커스를 잃었을때 호출되는 함수
 		$scope.idCheck=function(){
 			//입력한 아이디를 ajax 요청을 통해서 서버에 보내기 
@@ -50,10 +57,15 @@
 		<div class="form-group has-feedback"
 			ng-class="{'has-success':f.pwd.$valid,'has-error':f.pwd.$invalid && f.pwd.$dirty}">
 			<label class="control-label" for="pwd">비밀번호</label>
-			<input ng-required="true" ng-model="pwd" ng-pattern="/^[a-zA-Z0-9]{5,10}$/" class="form-control" type="password" name="pwd" id="pwd"/>
+			<input ng-keyup="isPwdEqual()" ng-required="true" ng-model="pwd" ng-pattern="/^[a-zA-Z0-9]{5,10}$/" class="form-control" type="password" name="pwd" id="pwd"/>
 			<span ng-show="f.pwd.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
 			<span ng-show="f.pwd.$invalid && f.pwd.$dirty" class="glyphicon glyphicon-remove form-control-feedback"></span>
 			<p ng-show="f.pwd.$invalid && f.pwd.$dirty" class="help-block">특수문자 제외 5자 이상 10자 내로 입력하세요.</p>
+			<p ng-show="!pwdEqual && f.pwd.$dirty" class="help-block">비밀번호를 아래와 같게 입력하세요.</p>
+		</div>
+		<div class="form-group">
+			<label for="pwd2">비밀번호 확인</label>
+			<input ng-keyup="isPwdEqual()" class="form-control" type="password" id="pwd2" name="pwd2" ng-model="pwd2"/>
 		</div>
 		<div class="form-group has-feedback" 
 			ng-class="{'has-success':f.email.$valid,'has-error':f.email.$invalid && f.email.$dirty}">
@@ -63,7 +75,7 @@
 			<span ng-show="f.email.$invalid && f.email.$dirty" class="glyphicon glyphicon-remove form-control-feedback"></span>
 			<p ng-show="f.email.$invalid && f.email.$dirty" class="help-block">이메일 형식에 맞게 입력하세요.</p>
 		</div>
-		<button ng-disabled="f.$invalid || !canUseId" class="btn btn-primary" type="submit">가입</button>
+		<button ng-disabled="f.$invalid || !canUseId || !pwdEqual" class="btn btn-primary" type="submit">가입</button>
 	</form>
 </div>
 </body>
