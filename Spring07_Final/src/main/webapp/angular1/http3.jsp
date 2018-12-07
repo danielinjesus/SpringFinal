@@ -31,6 +31,8 @@
 	<h3>$http post 방식 요청 테스트</h3>
 	<input ng-model="msg" type="text" placeholder="전송할 문자열 입력..."/>
 	<button ng-click="send()">서버로 ajax 전송</button>
+	<br/>
+	<a href="http4.jsp">다음예제</a>
 </body>
 </html>
 
