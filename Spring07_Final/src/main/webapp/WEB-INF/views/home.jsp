@@ -28,6 +28,8 @@
 	<li><a href="file/list.do">자료실 목록보기</a></li>
 	<li><a href="cafe/list.do">카페글 목록보기</a></li>
 	<li><a href="angular1/http.jsp">angular $http 테스트</a></li>
+	<li><a href="hello.do?msg=hi~~">인사 하기</a></li>
+	<li><a href="hello.do">인사하기(예외발생)</a></li>
 </ul>
 <h4>공지사항</h4>
 <ul>
