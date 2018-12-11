@@ -28,8 +28,11 @@ public class HelloController {
 	//HelloException type 예외가 발생했을때 호출되는 메소드 
 	@ExceptionHandler(HelloException.class)
 	public ModelAndView handleHelloException(HelloException he) {
+		//예외 객체가 메소드의 인자로 전달된다. 
 		ModelAndView mView=new ModelAndView();
+		//예외 객체를 exception 이라는 키값으로 담고 
 		mView.addObject("exception", he);
+		//view 페이지로 forward 이동해서 예외 정보 출력 
 		mView.setViewName("error/hello");
 		return mView;
 	}
