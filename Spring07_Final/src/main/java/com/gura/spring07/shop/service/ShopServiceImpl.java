@@ -1,18 +1,19 @@
 package com.gura.spring07.shop.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.gura.spring07.shop.dao.ShopDao;
 import com.gura.spring07.shop.dto.ShopDto;
 
+@Service
 public class ShopServiceImpl implements ShopService{
 	@Autowired
 	private ShopDao dao;
 	
 	@Override
 	public void signup(String id) {
-		// TODO Auto-generated method stub
-		
+		dao.signup(id);
 	}
 
 	@Override

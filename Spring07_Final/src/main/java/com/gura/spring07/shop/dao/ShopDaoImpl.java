@@ -2,17 +2,18 @@ package com.gura.spring07.shop.dao;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.gura.spring07.shop.dto.ShopDto;
 
+@Repository
 public class ShopDaoImpl implements ShopDao{
 	@Autowired
 	private SqlSession session;
 		
 	@Override
 	public void signup(String id) {
-		// TODO Auto-generated method stub
-		
+		session.insert("shop.insert", id);
 	}
 
 	@Override
