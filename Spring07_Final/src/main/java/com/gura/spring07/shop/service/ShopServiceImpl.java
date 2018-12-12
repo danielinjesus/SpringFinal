@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.gura.spring07.exception.NoDeliveryException;
 import com.gura.spring07.shop.dao.ShopDao;
 import com.gura.spring07.shop.dto.ShopDto;
 
@@ -32,9 +33,20 @@ public class ShopServiceImpl implements ShopService{
 		//2. 물품 금액만큼 계좌 잔액을 줄이고
 		dao.withDraw(dto);
 		//3. 배송 정보를 입력한다.
+		if(dto.getAddr().equals("강원도")) {
+			throw new NoDeliveryException("강원도는 눈이 많이 와서 "
+					+ "일시적으로 배송 불가입니다.");
+		}
 		dao.requestDelivery(dto);
 	}
 }
+
+
+
+
+
+
+
 
 
 

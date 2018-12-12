@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.gura.spring07.exception.NoDeliveryException;
 import com.gura.spring07.shop.dto.ShopDto;
 import com.gura.spring07.shop.service.ShopService;
 
@@ -50,6 +51,16 @@ public class ShopController {
 		mView.setViewName("shop/buy");
 		return mView;
 	}
+	// NoDelivery 예외를 세부적으로 처리하고 싶다면 
+	@ExceptionHandler(NoDeliveryException.class)
+	public ModelAndView handleDataAccessException(NoDeliveryException nde) {
+		ModelAndView mView=new ModelAndView();
+		//Exception 객체를 "exception" 이라는 키값으로 ModelAndView 에 담고
+		mView.addObject("exception", nde);
+		//view 페이지로 forward 이동해서 예외 정보 응답하기 
+		mView.setViewName("error/no_delivery");
+		return mView;
+	}	
 	/*
 	 *  Dao 에서 DB 에 INSERT, UPDATE, DELETE, SELECT 등의 작업을 하다가
 	 *  발생한 Exception 처리 하기 
