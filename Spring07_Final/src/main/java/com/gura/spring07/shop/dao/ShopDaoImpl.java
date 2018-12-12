@@ -21,23 +21,22 @@ public class ShopDaoImpl implements ShopDao{
 		// TODO Auto-generated method stub
 		
 	}
-
+	//계좌 잔액 줄이기
 	@Override
 	public void withDraw(ShopDto dto) {
-		// TODO Auto-generated method stub
-		
+		session.update("shop.withDraw", dto);
 	}
-
+	//포인트 적립하기
 	@Override
 	public void addPoint(ShopDto dto) {
-		// TODO Auto-generated method stub
-		
+		session.update("shop.addPoint", dto);
 	}
-
+	//배송 정보 입력하기 
 	@Override
 	public void requestDelivery(ShopDto dto) {
-		// TODO Auto-generated method stub
-		
+		session.insert("shop.requestDelivery", dto);
 	}
-
 }
+
+
+

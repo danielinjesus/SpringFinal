@@ -6,6 +6,21 @@
 		(id)
 		VALUES(#{id})
 	</insert>
+	<update id="withDraw" parameterType="shopDto">
+		UPDATE client_account
+		SET balance = balance - #{money}
+		WHERE id=#{id}
+	</update>
+	<update id="addPoint" parameterType="shopDto">
+		UPDATE client_account
+		SET bonusPoint = bonusPoint + #{point}
+		WHERE id=#{id}
+	</update>
+	<insert id="requestDelivery" parameterType="shopDto">
+		INSERT INTO delivery
+		(num, name, addr)
+		VALUES(delivery_seq.NEXTVAL, #{id}, #{addr} )
+	</insert>
 </mapper>
 
 
