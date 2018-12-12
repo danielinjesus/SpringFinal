@@ -5,7 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.gura.spring07.shop.dto.ShopDto;
-
+/*
+ *  @Repository 어노테이션을 붙여서 만든 Dao 에서 DB 관련 작업을 하다가
+ *  SqlException 이 발생하면 스프링을 해당 예외를 잡아서 
+ *  DataAccessException 을 발생 시킨다.
+ *  따라서 원한다면 특정 상황에서 custom DataAccessException 을 발생 시킬수도 있다.
+ */
 @Repository
 public class ShopDaoImpl implements ShopDao{
 	@Autowired
