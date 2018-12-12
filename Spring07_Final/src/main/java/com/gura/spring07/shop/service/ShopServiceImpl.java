@@ -2,6 +2,7 @@ package com.gura.spring07.shop.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.gura.spring07.shop.dao.ShopDao;
 import com.gura.spring07.shop.dto.ShopDto;
@@ -21,6 +22,7 @@ public class ShopServiceImpl implements ShopService{
 		// TODO Auto-generated method stub
 	}
 	//상품 구입에 관련된 비즈니스 로직처리를 하는 서비스 메소드 
+	@Transactional
 	@Override
 	public void buy(ShopDto dto) {
 		//1. 10% 포인트를 적립하고
